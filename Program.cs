@@ -115,36 +115,49 @@ PrintDictionary(TestDict);
 
 Console.WriteLine("=========================================");
 //! Find Key
-// static bool FindKey(Dictionary<string,string> MyDictionary, string SearchTerm)
-// {
-//     // Your code here
-// }
-// // Use the TestDict from the earlier example or make your own
-// // This should print true
-// Console.WriteLine(FindKey(TestDict, "RealName"));
-// // This should print false
-// Console.WriteLine(FindKey(TestDict, "Name"));
+static bool FindKey(Dictionary<string,string> MyDictionary, string SearchTerm)
+{
+    return MyDictionary.ContainsKey(SearchTerm);
+}
+// Use the TestDict from the earlier example or make your own
+// This should print true
+Console.WriteLine(FindKey(TestDict, "RealName"));
+// This should print false
+Console.WriteLine(FindKey(TestDict, "Name"));
 
 
 
 Console.WriteLine("=========================================");
 //! Generate a Dictionary
-// // Ex: Given ["Julie", "Harold", "James", "Monica"] and [6,12,7,10], return a dictionary
-// // {
-// //	"Julie": 6,
-// //	"Harold": 12,
-// //	"James": 7,
-// //	"Monica": 10
-// // } 
-// static Dictionary<string,int> GenerateDictionary(List<string> Names, List<int> Numbers)
+// Ex: Given ["Julie", "Harold", "James", "Monica"] and [6,12,7,10], return a dictionary
 // {
-//     // Your code here
-// }
-// // We've shown several examples of how to set your tests up properly, it's your turn to set it up!
-// // Your test code here
+//	"Julie": 6,
+//	"Harold": 12,
+//	"James": 7,
+//	"Monica": 10
+// } 
+static Dictionary<string,int> GenerateDictionary(List<string> Names, List<int> Age)
+{
+    Dictionary<string, int> result = new Dictionary<string, int>();
+    for (int i = 0; i < Names.Count; i++)
+    {
+        result[Names[i]] = Age[i];
+    }
+    return result;
+}
+// We've shown several examples of how to set your tests up properly, it's your turn to set it up!
+
+// Your test code here
+List<string> Names = new List<string>() {"Julie", "Harold", "James", "Monica"};
+List<int> Age = new List<int>() {6, 12, 7, 10};
+Dictionary<string, int> resultsDictionary = GenerateDictionary(Names, Age);
+
+foreach (var KeyValuePair in resultsDictionary)
+{
+    Console.WriteLine($"{KeyValuePair.Key}: {KeyValuePair.Value}");
+}
 
 
-
-
+Console.WriteLine("=========================================");
 
 
